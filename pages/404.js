@@ -19,7 +19,8 @@ const Wrapper = styled.section`
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: var(--clr-primary-10);
+  background: var(--color-primary);
+  color: var(--color-white);
   text-align: center;
   h1 {
     font-size: 10rem;
@@ -33,8 +34,8 @@ const Button = styled.button`
   text-transform: uppercase;
   width: 40%;
   padding: 20px;
-  background-color: var(--clr-primary-4);
-  color: var(--clr-primary-10);
+  background-color: var(--color-secondary);
+  color: var(--color-white);
   border: none;
   border-radius: 10px;
   &:hover {

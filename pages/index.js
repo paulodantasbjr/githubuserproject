@@ -23,10 +23,8 @@ const Main = styled.main`
   height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-primary);
 `
 const Wrapper = styled.div`
   width: 500px;

@@ -19,8 +19,20 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--ff-primary)
+    font-family: var(--ff-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    a{
+    text-decoration:none;
+    }
+    h6{
+      margin:0;
+      padding:0;
+    }
   }
+
 `
 
 export default GlobalStyle
