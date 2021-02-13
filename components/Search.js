@@ -1,17 +1,11 @@
-import React, { useState } from 'react'
-
+import styled from 'styled-components'
 import { AiOutlineSearch } from 'react-icons/ai'
 
-const Search = () => {
-  const [user, setUser] = useState('')
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+const Search = ({ handleSubmit, user, setUser }) => {
   return (
-    <section>
+    <Wrapper>
       <form onSubmit={handleSubmit}>
-        <div>
+        <FormControl>
           <AiOutlineSearch />
           <input
             type='text'
@@ -20,10 +14,48 @@ const Search = () => {
             onChange={(e) => setUser(e.target.value)}
           />
           <button type='submit'>search</button>
-        </div>
+        </FormControl>
       </form>
-    </section>
+    </Wrapper>
   )
 }
 
 export default Search
+
+const Wrapper = styled.div``
+
+const FormControl = styled.div`
+  background: var(--color-gray);
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 0.5rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+  input {
+    border-color: transparent;
+    outline-color: var(--color-black);
+    letter-spacing: var(--spacing);
+    color: var(--clr-black);
+    padding: 0.25rem 0.5rem;
+    text-transform: lowercase;
+  }
+  input::placeholder {
+    color: var(--color-black);
+    letter-spacing: var(--spacing);
+  }
+  button {
+    border-radius: 5px;
+    border-color: transparent;
+    padding: 0.25rem 0.5rem;
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    background: var(--color-secondary);
+    color: var(--color-white);
+    transition: var(--transition);
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+`
