@@ -11,6 +11,14 @@ const User = () => {
     const res = await fetch(`https://api.github.com/users/${user}`)
     const data = await res.json()
     setGitHubUser(data)
+    if (localStorage.getItem('users') === null) {
+      localStorage.setItem('users', JSON.stringify([user]))
+    } else {
+      localStorage.setItem(
+        'users',
+        JSON.stringify([...JSON.parse(localStorage.getItem('users')), user])
+      )
+    }
   }
 
   const handleSubmit = (e) => {

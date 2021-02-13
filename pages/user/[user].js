@@ -57,7 +57,7 @@ const info = () => {
         </Repositories>
       </Conteiner>
       <Link href='/'>
-        <Button>Voltar</Button>
+        <Button>Pesquisar novamente</Button>
       </Link>
     </Wrapper>
   )
@@ -157,7 +157,7 @@ const Button = styled.button`
   margin: 20px;
   text-transform: uppercase;
   width: 40%;
-  padding: 20px;
+  padding: 10px;
   background-color: var(--color-secondary);
   color: var(--color-white);
   letter-spacing: var(--spacing);
