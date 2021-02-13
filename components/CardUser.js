@@ -6,9 +6,9 @@ const CardUser = ({ gitHubUser }) => {
     <WrapperUser>
       <Link href={`/user/${gitHubUser.login}`}>
         <a>
-          <ImagemConteiner>
+          <ImagemContainer>
             <img src={gitHubUser.avatar_url} alt={gitHubUser.name} />
-          </ImagemConteiner>
+          </ImagemContainer>
         </a>
       </Link>
       <InfoBox>
@@ -40,19 +40,20 @@ const WrapperUser = styled.div`
     font-variant: small-caps;
   }
 `
-const ImagemConteiner = styled.div`
+const ImagemContainer = styled.div`
   width: 150px;
   height: 150px;
   overflow: hidden;
   border-radius: 50%;
   cursor: pointer;
+  transition: var(--transition);
   &:hover {
-    border: 1px solid var(--color-secondary);
-    transition: var(--transition);
+    box-shadow: var(--box-shadow);
   }
   img {
     width: 100%;
     height: 100%;
+    transition: var(--transition);
   }
   img:hover {
     opacity: 0.8;

@@ -155,16 +155,21 @@ const Repositories = styled.div`
 `
 const Button = styled.button`
   margin: 20px;
+  border: 2px solid transparent;
+  outline: none;
   text-transform: uppercase;
+  cursor: pointer;
   width: 40%;
   padding: 10px;
   background-color: var(--color-secondary);
   color: var(--color-white);
   letter-spacing: var(--spacing);
-  border: none;
   border-radius: 10px;
+  transition: var(--transition);
   &:hover {
-    transition: all 0.2s ease-in-out;
-    opacity: 0.7;
+    transition: var(--transition);
+    color: var(--color-secondary);
+    background-color: transparent;
+    border: 2px solid var(--color-secondary);
   }
 `

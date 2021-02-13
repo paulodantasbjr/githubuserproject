@@ -1,18 +1,8 @@
-import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import User from '../components/User'
 import styled from 'styled-components'
-import CardUser from '../components/CardUser'
 
 const index = () => {
-  const [recent, setRecent] = useState([])
-
-  const gitHubUser = async (users) => {
-    const res = await fetch(`https://api.github.com/users/${users}`)
-    const data = await res.json()
-    return data
-  }
-
   return (
     <>
       <Head>
@@ -38,5 +28,5 @@ const Main = styled.main`
 `
 const Wrapper = styled.div`
   width: 500px;
-  height: 500px;
+  height: 800px;
 `

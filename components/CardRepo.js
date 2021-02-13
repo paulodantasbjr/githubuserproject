@@ -30,28 +30,33 @@ export default CardRepo
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-black);
+  box-shadow: var(--box-shadow);
   background-color: var(--color-white);
-  padding: 5px;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
   margin: 15px 10px;
   &:hover {
     transition: var(--transition);
-    opacity: 0.5;
+    opacity: 0.8;
   }
 `
 
 const CardHeader = styled.div`
   text-transform: capitalize;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  padding: 5px;
+  background-color: var(--color-primary);
   h2 {
     margin: 0;
     letter-spacing: var(--spacing);
     font-weight: bolder;
-    color: var(--color-secondary);
+    color: var(--color-white);
   }
 `
 const CardBody = styled.div`
   display: flex;
+  padding: 10px;
   flex-direction: column;
   span {
     font-size: 14px;

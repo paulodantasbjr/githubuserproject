@@ -6,11 +6,12 @@ const GlobalStyle = createGlobalStyle`
   --color-white: #fff;
   --color-black: #222;
   --color-gray: #fafafa;
-  --color-primary: #8700FF;
-  --color-secondary: #FF5500;
+  --color-primary: #593891;
+  --color-secondary: #01afad;
   --ff-primary: 'Roboto', sans-serif;
   --ff-secondary: 'Open Sans', sans-serif;
   --spacing: 0.1rem;
+  --box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
   --radius: 0.25rem;
   --transition: all 0.2s ease-in-out
 }

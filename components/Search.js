@@ -34,19 +34,22 @@ const FormControl = styled.div`
   padding: 0.5rem;
   input {
     border-color: transparent;
+    outline: none;
     outline-color: var(--color-black);
     letter-spacing: var(--spacing);
     color: var(--clr-black);
     padding: 0.25rem 0.5rem;
-    text-transform: lowercase;
   }
   input::placeholder {
+    opacity: 0.6;
+    font-weight: 300;
     color: var(--color-black);
     letter-spacing: var(--spacing);
   }
   button {
     border-radius: 5px;
     border-color: transparent;
+    outline: none;
     padding: 0.25rem 0.5rem;
     text-transform: capitalize;
     letter-spacing: var(--spacing);
@@ -55,7 +58,9 @@ const FormControl = styled.div`
     transition: var(--transition);
     cursor: pointer;
     &:hover {
-      opacity: 0.8;
+      color: var(--color-primary);
+      background-color: transparent;
+      border: 2px solid var(--color-primary);
     }
   }
 `
