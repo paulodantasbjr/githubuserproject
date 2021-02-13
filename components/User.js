@@ -23,7 +23,6 @@ const User = () => {
         JSON.stringify([...JSON.parse(localStorage.getItem('users')), user])
       )
     }
-    localStorage.setItem('users', JSON.stringify(user))
   }
 
   useEffect(() => {
@@ -38,12 +37,13 @@ const User = () => {
     fetchData()
     setUser([])
   }
+
   return (
     <>
       <Titulo>PROJETO: HUBusca</Titulo>
       <Search handleSubmit={handleSubmit} user={user} setUser={setUser} />
       {gitHubUser === '' ? <EmptyUser /> : <CardUser gitHubUser={gitHubUser} />}
-      {local === null ? <EmptyRecent /> : <Recent user={local} />}
+      {local === '' ? <EmptyRecent /> : <Recent user={local} />}
     </>
   )
 }

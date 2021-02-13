@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   --color-gray: #fafafa;
   --color-primary: #593891;
   --color-secondary: #01afad;
-  --ff-primary: 'Roboto', sans-serif;
+  --ff-primary: 'Raleway', sans-serif;
   --ff-secondary: 'Open Sans', sans-serif;
   --spacing: 0.1rem;
   --box-shadow: 0px 1px 10px rgba(0,0,0,0.2);

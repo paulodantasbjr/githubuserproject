@@ -9,7 +9,7 @@ const Search = ({ handleSubmit, user, setUser }) => {
           <AiOutlineSearch />
           <input
             type='text'
-            placeholder='Entre com o nome de usuario'
+            placeholder='Entre com o nome de usuário'
             value={user}
             onChange={(e) => setUser(e.target.value)}
           />
