@@ -26,7 +26,6 @@ const CardUser = ({ gitHubUser }) => {
 export default CardUser
 
 const WrapperUser = styled.div`
-  margin: 20px 0;
   background: var(--color-white);
   padding: 1.5rem 2rem;
   border-radius: var(--radius);
@@ -62,6 +61,10 @@ const ImagemContainer = styled.div`
     opacity: 0.8;
     transition: var(--transition);
   }
+  @media (max-width: 640px) {
+    width: 120px;
+    height: 120px;
+  }
 `
 const InfoBox = styled.div`
   margin: 0 20px;
@@ -74,14 +77,24 @@ const InfoBox = styled.div`
     color: var(--color-primary);
     letter-spacing: var(--spacing);
     font-weight: 2rem;
+
+    @media (max-width: 640px) {
+      font-size: 13px;
+    }
   }
   span {
     letter-spacing: var(--spacing);
     color: var(--color-secondary);
+    @media (max-width: 640px) {
+      font-size: 11px;
+    }
   }
   p {
     color: var(--color-black);
     font-style: italic;
     font-variant: small-caps;
+    @media (max-width: 640px) {
+      font-size: 11px;
+    }
   }
 `

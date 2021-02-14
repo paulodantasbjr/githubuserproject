@@ -40,16 +40,16 @@ const info = () => {
           <p>{dataUser.login}</p>
           <blockquote>{dataUser.location}</blockquote>
           <Number>
-            <div>
+            <DataNumber>
               <small>{dataUser.followers}</small>
               <small>{dataUser.following}</small>
               <small>{dataUser.public_repos}</small>
-            </div>
-            <div>
+            </DataNumber>
+            <TituloNumber>
               <h6>Seguidores</h6>
               <h6>Seguindo</h6>
               <h6>Repo</h6>
-            </div>
+            </TituloNumber>
           </Number>
         </User>
         <Repositories>
@@ -85,7 +85,6 @@ const Wrapper = styled.main`
 const Conteiner = styled.div`
   background-color: var(--color-white);
   height: 500px;
-  width: 500px;
   border-radius: var(--radius);
   display: flex;
   position: relative;
@@ -97,6 +96,12 @@ const Conteiner = styled.div`
     height: 130px;
     border-radius: 50%;
     object-fit: cover;
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+  @media (max-width: 640px) {
+    width: 350px;
   }
 `
 
@@ -105,18 +110,25 @@ const User = styled.div`
   max-width: 150px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 10px;
   span {
     font-weight: bolder;
     text-align: center;
     letter-spacing: var(--spacing);
+    @media (max-width: 640px) {
+      max-width: 120px;
+      font-size: 13px;
+    }
   }
   p {
     text-align: center;
     letter-spacing: var(--spacing);
     font-weight: 300;
     color: var(--color-secondary);
+    @media (max-width: 640px) {
+      font-size: 12px;
+    }
   }
   blockquote {
     margin: 0;
@@ -127,12 +139,18 @@ const User = styled.div`
     text-align: center;
     font-style: italic;
     font-variant: small-caps;
+    @media (max-width: 640px) {
+      font-size: 11px;
+    }
   }
   small {
     height: min-content;
     color: var(--color-primary);
     font-weight: 300;
     text-align: center;
+    @media (max-width: 640px) {
+      font-size: 11px;
+    }
   }
 `
 
@@ -140,18 +158,40 @@ const Number = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 5px;
+  @media (max-width: 640px) {
+    flex-direction: row;
+    font-size: 11px;
+  }
+`
+const DataNumber = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 8px;
+  @media (max-width: 640px) {
+    max-width: min-content;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+`
+const TituloNumber = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 640px) {
+    max-width: min-content;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+    h6 {
+      font-size: 9px;
+      margin: 2px;
+    }
   }
 `
 
 const Repositories = styled.div`
   background-color: var(--color-gray);
-  width: 350px;
   overflow: scroll;
+  width: 800px;
 `
 const Button = styled.button`
   margin: 20px;
@@ -166,10 +206,14 @@ const Button = styled.button`
   letter-spacing: var(--spacing);
   border-radius: 10px;
   transition: var(--transition);
+  max-width: 250px;
   &:hover {
     transition: var(--transition);
     color: var(--color-secondary);
     background-color: transparent;
     border: 2px solid var(--color-secondary);
+  }
+  @media (max-width: 640px) {
+    font-size: 12px;
   }
 `

@@ -69,6 +69,7 @@ const User = () => {
 export default User
 
 const Wrapper = styled.div`
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   background-color: var(--color-secondary);
@@ -83,6 +84,9 @@ const Info = styled.div`
   h2 {
     color: var(--color-white);
     margin: 0;
+    @media (max-width: 640px) {
+      font-size: 18px;
+    }
   }
 `
 const Container = styled.div`
@@ -105,6 +109,9 @@ const Button = styled.button`
     color: var(--color-primary);
     background-color: transparent;
     border: 2px solid var(--color-primary);
+  }
+  @media (max-width: 640px) {
+    font-size: 10px;
   }
 `
 

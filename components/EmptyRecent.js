@@ -10,7 +10,6 @@ const EmptyRecent = () => {
 export default EmptyRecent
 
 const User = styled.div`
-  width: 400px;
   height: 170px;
   margin: 20px 0;
   background: var(--color-white);
@@ -23,5 +22,8 @@ const User = styled.div`
     font-size: 24px;
     letter-spacing: var(--spacing);
     text-align: center;
+    @media (max-width: 640px) {
+      font-size: 18px;
+    }
   }
 `

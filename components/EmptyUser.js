@@ -24,10 +24,18 @@ const User = styled.div`
     font-size: 20px;
     letter-spacing: var(--spacing);
     text-align: center;
+    @media (max-width: 640px) {
+      font-size: 16px;
+    }
   }
   p {
     text-align: center;
     font-style: italic;
     font-variant: small-caps;
+    @media (max-width: 640px) {
+      font-size: 10px;
+      font-weight: 500;
+      font-variant: normal;
+    }
   }
 `

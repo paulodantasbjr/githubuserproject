@@ -23,7 +23,9 @@ const Search = ({ handleSubmit, user, setUser }) => {
 
 export default Search
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  margin: 20px 0;
+`
 
 const FormControl = styled.div`
   background: var(--color-gray);
@@ -46,6 +48,9 @@ const FormControl = styled.div`
     font-weight: 300;
     color: var(--color-black);
     letter-spacing: var(--spacing);
+    @media (max-width: 640px) {
+      font-size: 11px;
+    }
   }
   button {
     border-radius: 5px;

@@ -27,6 +27,12 @@ const Main = styled.main`
   align-items: center;
 `
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 500px;
   height: 800px;
+
+  @media (max-width: 640px) {
+    width: 330px;
+  }
 `
