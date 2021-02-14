@@ -4,17 +4,20 @@ import Link from 'next/link'
 const CardUser = ({ gitHubUser }) => {
   return (
     <WrapperUser>
-      <Link href={`/user/${gitHubUser.login}`}>
+      <Link href={gitHubUser === undefined ? '/' : `/user/${gitHubUser.login}`}>
         <a>
           <ImagemContainer>
-            <img src={gitHubUser.avatar_url} alt={gitHubUser.name} />
+            <img
+              src={gitHubUser === undefined ? '/' : gitHubUser.avatar_url}
+              alt={gitHubUser === undefined ? '/' : gitHubUser.name}
+            />
           </ImagemContainer>
         </a>
       </Link>
       <InfoBox>
-        <h2>{gitHubUser.name}</h2>
-        <span>{gitHubUser.login}</span>
-        <p>{gitHubUser.location}</p>
+        <h2>{gitHubUser === undefined ? '/' : gitHubUser.name}</h2>
+        <span>{gitHubUser === undefined ? '/' : gitHubUser.login}</span>
+        <p>{gitHubUser === undefined ? '/' : gitHubUser.location}</p>
       </InfoBox>
     </WrapperUser>
   )

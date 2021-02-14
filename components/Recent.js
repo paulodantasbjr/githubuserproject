@@ -1,21 +1,26 @@
 import { useEffect, useState } from 'react'
-import { typeOf } from 'react-is'
 import CardUser from './CardUser'
 
 const Recent = ({ user }) => {
-  const [userLocal, setUserLocal] = useState('')
+  const [userLocal, setUserLocal] = useState([])
 
   const fetchData = async () => {
-    const res = await fetch(`https://api.github.com/users/${user}`)
-    const data = await res.json()
-    setUserLocal(data)
+    user.map(async (re) => {
+      const res = await fetch(`https://api.github.com/users/${re}`)
+      const data = await res.json()
+      setUserLocal({ ...userLocal, data })
+    })
   }
-
   useEffect(() => {
     fetchData()
   }, [])
-  console.log(userLocal)
-  return <div>oi</div>
+  return (
+    <>
+      {user.map((r, index) => (
+        <CardUser key={index} gitHubUser={userLocal.data} />
+      ))}
+    </>
+  )
 }
 
 export default Recent

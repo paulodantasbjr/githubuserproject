@@ -5,8 +5,8 @@ const rootUrl = 'https://api.github.com'
 const GlobalContext = createContext()
 
 const GithubProvider = ({ children }) => {
-  const [user, setUser] = useState('')
-  const [gitHubUser, setGitHubUser] = useState('')
+  const [user, setUser] = useState([])
+  const [gitHubUser, setGitHubUser] = useState([])
 
   return (
     <GlobalContext.Provider
