@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import Link from 'next/link'
 import { useRouter } from 'next/router'

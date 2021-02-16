@@ -1,8 +1,8 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
 import CardUser from './CardUser'
 
-const Recent = ({ user }) => {
+const Recent = () => {
   const { recentUser } = useContext(GlobalContext)
 
   return (
