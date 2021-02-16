@@ -6,6 +6,7 @@ const GithubProvider = ({ children }) => {
   const [user, setUser] = useState([])
   const [gitHubUser, setGitHubUser] = useState([])
   const [recentUser, setRecentUser] = useState([])
+  const [dataRepo, setDataRepo] = useState([])
 
   const fetchUser = async (user) => {
     const res = await fetch(`https://api.github.com/users/${user}`)
@@ -17,6 +18,11 @@ const GithubProvider = ({ children }) => {
       setRecentUser([...recentUser, data])
     }
   }
+  const fetchRepo = async (user) => {
+    const res = await fetch(`https://api.github.com/users/${user}/repos`)
+    const data = await res.json()
+    setDataRepo(data)
+  }
 
   return (
     <GlobalContext.Provider
@@ -24,10 +30,13 @@ const GithubProvider = ({ children }) => {
         user,
         gitHubUser,
         recentUser,
+        dataRepo,
         setUser,
         setGitHubUser,
         setRecentUser,
         fetchUser,
+        setDataRepo,
+        fetchRepo,
       }}
     >
       {children}

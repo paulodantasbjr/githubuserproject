@@ -6,21 +6,13 @@ import CardRepo from '../../components/CardRepo'
 import styled from 'styled-components'
 
 const info = () => {
-  const { gitHubUser } = useContext(GlobalContext)
+  const { gitHubUser, dataRepo, fetchRepo } = useContext(GlobalContext)
 
-  const [dataRepo, setDataRepo] = useState([])
   const router = useRouter()
-
   const { user } = router.query
 
-  const fetchRepo = async () => {
-    const res = await fetch(`https://api.github.com/users/${user}/repos`)
-    const data = await res.json()
-    setDataRepo(data)
-  }
-
   useEffect(() => {
-    fetchRepo()
+    fetchRepo(user)
   }, [])
 
   return (
