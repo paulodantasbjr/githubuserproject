@@ -7,10 +7,18 @@ const GlobalContext = createContext()
 const GithubProvider = ({ children }) => {
   const [user, setUser] = useState([])
   const [gitHubUser, setGitHubUser] = useState([])
+  const [recentUser, setRecentUser] = useState([])
 
   return (
     <GlobalContext.Provider
-      value={{ user, setUser, gitHubUser, setGitHubUser }}
+      value={{
+        user,
+        setUser,
+        gitHubUser,
+        setGitHubUser,
+        recentUser,
+        setRecentUser,
+      }}
     >
       {children}
     </GlobalContext.Provider>

@@ -8,7 +8,14 @@ import Recent from './Recent'
 import EmptyRecent from './EmptyRecent'
 
 const User = () => {
-  const { user, setUser, gitHubUser, setGitHubUser } = useContext(GlobalContext)
+  const {
+    user,
+    setUser,
+    gitHubUser,
+    setGitHubUser,
+    recentUser,
+    setRecentUser,
+  } = useContext(GlobalContext)
   const [local, setLocal] = useState([])
 
   const fetchData = async () => {
@@ -18,30 +25,17 @@ const User = () => {
     } else {
       const data = await res.json()
       setGitHubUser(data)
-      if (localStorage.getItem('users') === null) {
-        localStorage.setItem('users', JSON.stringify([user]))
-      } else {
-        localStorage.setItem(
-          'users',
-          JSON.stringify([...JSON.parse(localStorage.getItem('users')), user])
-        )
-      }
+      setRecentUser([...recentUser, data])
     }
   }
-  useEffect(() => {
-    const getStorage = JSON.parse(localStorage.getItem('users'))
-    if (getStorage) {
-      setLocal(getStorage)
-    }
-  }, [])
 
+  console.log(recentUser)
   const handleSubmit = (e) => {
     e.preventDefault()
     fetchData()
   }
   const handleClear = () => {
-    localStorage.removeItem('users')
-    window.location.reload()
+    setRecentUser([])
   }
 
   return (
@@ -59,7 +53,11 @@ const User = () => {
           <Button onClick={handleClear}>Limpar</Button>
         </Info>
         <Container>
-          {local.length === 0 ? <EmptyRecent /> : <Recent user={local} />}
+          {recentUser.length === 0 ? (
+            <EmptyRecent />
+          ) : (
+            <Recent user={recentUser} />
+          )}
         </Container>
       </Wrapper>
     </>
