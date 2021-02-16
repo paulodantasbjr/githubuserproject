@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext } from 'react'
 import EmptyUser from './EmptyUser'
 import CardUser from '../components/CardUser'
 import styled from 'styled-components'
@@ -16,7 +16,6 @@ const User = () => {
     recentUser,
     setRecentUser,
   } = useContext(GlobalContext)
-  const [local, setLocal] = useState([])
 
   const fetchData = async () => {
     const res = await fetch(`https://api.github.com/users/${user}`)
@@ -67,7 +66,6 @@ const User = () => {
 export default User
 
 const Wrapper = styled.div`
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
   background-color: var(--color-secondary);
@@ -90,7 +88,7 @@ const Info = styled.div`
 const Container = styled.div`
   max-height: 400px;
   padding: 10px;
-  overflow: scroll;
+  overflow: auto;
 `
 const Button = styled.button`
   border-radius: 5px;

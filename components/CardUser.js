@@ -28,6 +28,7 @@ const WrapperUser = styled.div`
   border-radius: var(--radius);
   display: flex;
   justify-content: space-around;
+  margin-bottom: 10px;
   h2 {
     font-size: 20px;
     letter-spacing: var(--spacing);
