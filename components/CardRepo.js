@@ -14,15 +14,15 @@ const CardRepo = ({ dataRepo }) => {
             <DateRepo>
               <Item>
                 <span>data de criação</span>
-                <p>{repo.created_at}</p>
+                <p>{new Date(repo.created_at).toDateString()}</p>
               </Item>
               <Item>
                 <span>data do último push</span>
-                <p>{repo.pushed_at}</p>
+                <p>{new Date(repo.pushed_at).toDateString()}</p>
               </Item>
               <Item>
                 <span>Tamanho</span>
-                <p>{repo.size}</p>
+                <p>{repo.size} MB</p>
               </Item>
               <Item>
                 <span>Forks</span>
