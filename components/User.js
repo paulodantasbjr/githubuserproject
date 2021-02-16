@@ -12,26 +12,14 @@ const User = () => {
     user,
     setUser,
     gitHubUser,
-    setGitHubUser,
     recentUser,
     setRecentUser,
+    fetchUser,
   } = useContext(GlobalContext)
 
-  const fetchData = async () => {
-    const res = await fetch(`https://api.github.com/users/${user}`)
-    if (res.status === 404) {
-      alert('Usuario nao existe')
-    } else {
-      const data = await res.json()
-      setGitHubUser(data)
-      setRecentUser([...recentUser, data])
-    }
-  }
-
-  console.log(recentUser)
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetchData()
+    fetchUser(user)
   }
   const handleClear = () => {
     setRecentUser([])

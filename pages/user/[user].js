@@ -1,29 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import CardRepo from '../../components/CardRepo'
 import styled from 'styled-components'
 
 const info = () => {
-  const [dataUser, setDataUser] = useState('')
+  const { gitHubUser } = useContext(GlobalContext)
+
   const [dataRepo, setDataRepo] = useState([])
   const router = useRouter()
+
   const { user } = router.query
 
-  const fetchUser = async () => {
-    const res = await fetch(`https://api.github.com/users/${user}`)
-    const data = await res.json()
-    setDataUser(data)
-  }
   const fetchRepo = async () => {
     const res = await fetch(`https://api.github.com/users/${user}/repos`)
     const data = await res.json()
     setDataRepo(data)
   }
 
-  useEffect(() => {
-    fetchUser()
-  }, [])
   useEffect(() => {
     fetchRepo()
   }, [])
@@ -32,18 +27,18 @@ const info = () => {
     <Wrapper>
       <Titulo>PROJETO: HUBusca</Titulo>
       <Conteiner>
-        <img src={dataUser.avatar_url} alt={dataUser.name} />
+        <img src={gitHubUser.avatar_url} alt={gitHubUser.name} />
         <User>
           <span>
-            #:{dataUser.id} - {dataUser.name}
+            #:{gitHubUser.id} - {gitHubUser.name}
           </span>
-          <p>{dataUser.login}</p>
-          <blockquote>{dataUser.location}</blockquote>
+          <p>{gitHubUser.login}</p>
+          <blockquote>{gitHubUser.location}</blockquote>
           <Number>
             <DataNumber>
-              <small>{dataUser.followers}</small>
-              <small>{dataUser.following}</small>
-              <small>{dataUser.public_repos}</small>
+              <small>{gitHubUser.followers}</small>
+              <small>{gitHubUser.following}</small>
+              <small>{gitHubUser.public_repos}</small>
             </DataNumber>
             <TituloNumber>
               <h6>Seguidores</h6>
